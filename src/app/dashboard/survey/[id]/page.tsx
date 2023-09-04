@@ -136,7 +136,7 @@ export default function EditSurvey({ params }: { params: { id: string } }) {
     setSurvey((prevSurvey) => ({
       ...prevSurvey,
       fullName: survey.fullName || "",
-      identification: survey.identification || "",
+      identification: Number(survey.identification) || 0,
       carModel: survey.carModel || "",
       buyingFactors: survey.buyingFactors || "",
     }));
@@ -144,10 +144,11 @@ export default function EditSurvey({ params }: { params: { id: string } }) {
 
   useEffect(() => {
     drivingRatingRefs.current = drivingRatingRefs.current.slice(0, 5).map(
-      (_, i) => drivingRatingRefs.current[i] || React.createRef()
+      (_, i) => drivingRatingRefs.current[i] || null
     );
+  
     satisfactionRatingRefs.current = satisfactionRatingRefs.current.slice(0, 5).map(
-      (_, i) => satisfactionRatingRefs.current[i] || React.createRef()
+      (_, i) => satisfactionRatingRefs.current[i] || null
     );
   }, []);
 
@@ -183,8 +184,8 @@ export default function EditSurvey({ params }: { params: { id: string } }) {
                 <div className="mt-2">
                   <input
                     ref={identificationRef}
-                    onChange={(e) => setSurvey({ ...survey, identification: e.target.value })}
-                    value={survey.identification}
+                    onChange={(e) => setSurvey({ ...survey, identification: parseInt(e.target.value) || 0 })}
+                    value={survey.identification.toString()}
                     id="identification"
                     name="identification"
                     type="text"
