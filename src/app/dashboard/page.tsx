@@ -171,7 +171,7 @@ export default function Dashboard() {
                   <br />
                   {person.carModel}
                 </p>
-                <p className="mt-1 truncate text-xs leading-5 text-gray-900"><span className="font-semibold">Modelo del automóvil:</span>
+                <p className="mt-1 truncate text-xs leading-5 text-gray-900">
                   <span className="font-semibold">Factores de compra:</span>
                   <br />
                   {person.buyingFactors}
