@@ -81,7 +81,7 @@ export default function Survey() {
               position: 'bottom-center',
             });
           }
-        } catch (error) {
+        } catch (error: any) {
           console.log(error);
           toast.error(error.message || "Error al actualizar la encuesta.", {
             duration: 4000,
