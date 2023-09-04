@@ -104,7 +104,7 @@ export default function Survey() {
     setSurvey((prevSurvey) => ({
       ...prevSurvey,
       fullName: survey.fullName || "",
-      identification: survey.identification || "",
+      identification: parseInt(survey.identification as unknown as string) || 0,
       carModel: survey.carModel || "",
       buyingFactors: survey.buyingFactors || "",
     }));

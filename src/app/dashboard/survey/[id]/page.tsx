@@ -88,7 +88,7 @@ export default function EditSurvey({ params }: { params: { id: string } }) {
         const data: Survey = {
           id: survey.id,
           fullName: fullNameRef.current.value,
-          identification: parseInt(identificationRef.current.value),
+          identification: parseInt(survey.identification as unknown as string) || 0,
           carModel: carModelRef.current.value,
           buyingFactors: buyingFactorsRef.current.value,
           drivingRating: parseInt(selectedDrivingRating.value),
